@@ -9,22 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;}
-html,body{width:100%;height:100%;overflow:hidden;background:#030008;color:#f0f0f8;font-family:'Rajdhani',sans-serif;-webkit-font-smoothing:antialiased;}
+html,body{width:100%;height:100%;overflow:hidden;background:#07001a;color:#f0f0f8;font-family:'Rajdhani',sans-serif;-webkit-font-smoothing:antialiased;}
 input{-webkit-user-select:text!important;user-select:text!important;}
 :root{
   --p:#8b5cf6;--p2:#a855f7;--p3:#c084fc;--px:#e879f9;
-  --card:rgba(8,3,20,.98);--card2:rgba(11,5,26,.96);
-  --b1:rgba(139,92,246,.22);--t1:#f0f0f8;--t2:#363656;--t3:#0a0a1a;--t4:#6060a0;
+  --card:rgba(14,6,32,.97);--card2:rgba(18,8,38,.95);
+  --b1:rgba(139,92,246,.28);--t1:#f0f0f8;--t2:#484868;--t3:#1a1a30;--t4:#7878b0;
   --hud:'Orbitron',monospace;--mono:'Share Tech Mono',monospace;
 }
 #cv{position:fixed;inset:0;z-index:0;pointer-events:none;}
-.vig{position:fixed;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 40%,transparent 30%,rgba(0,0,0,.75) 100%);}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.55) 100%);}
 /* ambient reactive glow */
-#amb{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.28;transition:opacity 1.4s ease;}
-#amb::before{content:'';position:absolute;top:-30%;left:10%;width:80%;height:80%;border-radius:50%;background:radial-gradient(ellipse,rgba(139,92,246,.18),transparent 70%);filter:blur(60px);}
-#amb::after{content:'';position:absolute;bottom:-20%;right:5%;width:70%;height:70%;border-radius:50%;background:radial-gradient(ellipse,rgba(232,121,249,.1),transparent 70%);filter:blur(70px);}
+#amb{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;transition:opacity 1.4s ease;}
+#amb::before{content:'';position:absolute;top:-20%;left:5%;width:90%;height:90%;border-radius:50%;background:radial-gradient(ellipse,rgba(139,92,246,.22),transparent 70%);filter:blur(50px);}
+#amb::after{content:'';position:absolute;bottom:-15%;right:0%;width:80%;height:80%;border-radius:50%;background:radial-gradient(ellipse,rgba(232,121,249,.14),transparent 70%);filter:blur(60px);}
 /* grid overlay */
-.gridbg{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:52px 52px;}
+.gridbg{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:linear-gradient(rgba(139,92,246,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.07) 1px,transparent 1px);background-size:52px 52px;}
 
 /* ── SCREENS ── */
 .scr{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .44s ease,transform .44s ease;}
@@ -32,7 +32,7 @@ input{-webkit-user-select:text!important;user-select:text!important;}
 .scr.out{opacity:0;transform:scale(.96) translateY(16px);}
 
 /* ══ SPLASH ══ */
-#sp{background:#030008;flex-direction:column;z-index:100;}
+#sp{background:#07001a;flex-direction:column;z-index:100;}
 .spw{display:flex;flex-direction:column;align-items:center;padding:40px 28px 48px;}
 .logo-stage{position:relative;width:220px;height:220px;display:flex;align-items:center;justify-content:center;margin-bottom:26px;}
 .hf{position:absolute;animation:hfspin 12s linear infinite;}
@@ -340,21 +340,68 @@ input{-webkit-user-select:text!important;user-select:text!important;}
 .nbtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 4px 4px;background:none;border:none;cursor:pointer;transition:all .2s;position:relative;}
 .nbtn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:all .2s;}
 .nbtnlbl{font-family:var(--hud);font-size:7px;font-weight:700;letter-spacing:1.5px;transition:all .2s;}
-.nbtn.off svg{color:var(--t3);}
-.nbtn.off .nbtnlbl{color:var(--t3);}
-.nbtn.active svg{color:#8b5cf6;filter:drop-shadow(0 0 6px rgba(139,92,246,.8));}
-.nbtn.active .nbtnlbl{color:#8b5cf6;}
+.nbtn.off svg{color:#3a3a60;}
+.nbtn.off .nbtnlbl{color:#3a3a60;}
+.nbtn.active svg{color:#a855f7;filter:drop-shadow(0 0 7px rgba(168,85,247,.9));}
+.nbtn.active .nbtnlbl{color:#a855f7;}
 
-/* FAB with outer rotating ring */
+/* DEVICE INFO page styles */
+.devgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.devcard{background:var(--card2);border:1px solid rgba(139,92,246,.1);border-radius:18px;padding:14px 12px;position:relative;overflow:hidden;}
+.devcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.35),transparent);}
+.devcard-ico{width:28px;height:28px;border-radius:9px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.devcard-ico svg{width:14px;height:14px;stroke:var(--p3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.devcard-lbl{font-family:var(--hud);font-size:6.5px;letter-spacing:2px;color:var(--t4);display:block;margin-bottom:4px;}
+.devcard-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--t1);display:block;}
+.devcard-sub{font-family:var(--mono);font-size:7.5px;color:var(--t2);display:block;margin-top:2px;}
+.devcard-bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;margin-top:8px;}
+.devcard-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#4c1d95,#a855f7);transition:width .8s ease;}
+.devcard-bar-fill.warn{background:linear-gradient(90deg,#78200a,#ef4444);}
+.devcard-bar-fill.ok{background:linear-gradient(90deg,#064e3b,#10b981);}
+.devcard.xt{border-color:rgba(232,121,249,.12);}
+.devcard.xt .devcard-ico{background:rgba(232,121,249,.08);border-color:rgba(232,121,249,.15);}
+.devcard.xt .devcard-ico svg{stroke:#e879f9;}
+.devcard.xt .devcard-bar-fill{background:linear-gradient(90deg,#6d28d9,#e879f9);}
+.devsec{background:var(--card);border:1px solid rgba(139,92,246,.09);border-radius:18px;padding:14px;margin-bottom:10px;}
+.devsec-ttl{font-family:var(--hud);font-size:7px;letter-spacing:2.5px;color:rgba(139,92,246,.6);display:block;margin-bottom:12px;}
+.devrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03);}
+.devrow:last-child{border:none;}
+.devrow-l{display:flex;align-items:center;gap:8px;}
+.devrow-dot{width:6px;height:6px;border-radius:50%;background:var(--p);flex-shrink:0;}
+.devrow-dot.g{background:#10b981;}
+.devrow-dot.y{background:#f59e0b;}
+.devrow-dot.r{background:#ef4444;}
+.devrow-lbl{font-family:var(--body);font-size:12px;color:var(--t4);}
+.devrow-val{font-family:var(--mono);font-size:10px;color:var(--t1);}
+
+/* HOME extras */
+.qstat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
+.qstat{background:var(--card2);border:1px solid rgba(139,92,246,.08);border-radius:14px;padding:12px 8px;text-align:center;position:relative;overflow:hidden;}
+.qstat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.3),transparent);}
+.qstat-ico{width:26px;height:26px;border-radius:8px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.14);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+.qstat-ico svg{width:13px;height:13px;stroke:var(--p3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.qstat-val{font-family:var(--hud);font-size:15px;font-weight:900;color:var(--t1);display:block;}
+.qstat-lbl{font-family:var(--mono);font-size:6.5px;color:var(--t2);letter-spacing:.5px;}
+.act-list{display:flex;flex-direction:column;gap:7px;margin-bottom:12px;}
+.act-item{background:var(--card);border:1px solid rgba(139,92,246,.07);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.act-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,.1);}
+.act-dot.on{background:#a855f7;box-shadow:0 0 7px rgba(168,85,247,.7);}
+.act-dot.on.xt{background:#e879f9;box-shadow:0 0 7px rgba(232,121,249,.7);}
+.act-nm{font-family:var(--hud);font-size:9px;color:var(--t4);flex:1;}
+.act-nm.on{color:var(--t1);}
+.act-badge{font-family:var(--mono);font-size:7px;padding:2px 7px;border-radius:4px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.15);color:rgba(139,92,246,.7);}
+.act-badge.xt{background:rgba(232,121,249,.07);border-color:rgba(232,121,249,.15);color:rgba(232,121,249,.7);}
+
+/* FAB with outer rotating ring — FIXED sizing */
 .fab-wrap{position:relative;top:-20px;display:flex;flex-direction:column;align-items:center;gap:6px;}
-.fab-ring{position:absolute;inset:-7px;border-radius:50%;pointer-events:none;opacity:0;transition:opacity .4s;}
-.fab-ring svg{width:100%;height:100%;animation:hfspin 4s linear infinite;}
+.fab-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);width:74px;height:74px;border-radius:50%;pointer-events:none;opacity:0;transition:opacity .4s;}
+.fab-ring svg{width:74px;height:74px;animation:hfspin 4s linear infinite;}
 .fab-wrap.pulse .fab-ring{opacity:1;}
 .fab{width:58px;height:58px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#4c1d95,#7c3aed,#a855f7);border:1px solid rgba(192,132,252,.3);cursor:pointer;-webkit-appearance:none;appearance:none;box-shadow:0 0 24px rgba(139,92,246,.45),0 8px 30px rgba(0,0,0,.7);transition:all .2s;position:relative;z-index:2;}
 .fab:active{transform:scale(.92);}
-.fab svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.fab svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
 .fab-wrap.pulse .fab{box-shadow:0 0 32px rgba(139,92,246,.65),0 0 60px rgba(139,92,246,.25),0 8px 30px rgba(0,0,0,.7);}
-.fabdot{position:absolute;top:0;right:0;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#e879f9,#c084fc);border:2px solid rgba(3,0,8,.95);font-family:var(--hud);font-size:6.5px;color:#fff;display:none;align-items:center;justify-content:center;z-index:3;box-shadow:0 0 8px rgba(232,121,249,.7);}
+.fabdot{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#e879f9,#c084fc);border:2px solid #07001a;font-family:var(--hud);font-size:7px;color:#fff;display:none;align-items:center;justify-content:center;z-index:3;box-shadow:0 0 8px rgba(232,121,249,.7);}
 .fabdot.show{display:flex;}
 .fablbl{font-family:var(--hud);font-size:7px;font-weight:700;letter-spacing:1px;color:rgba(139,92,246,.5);transition:color .3s;}
 .fab-wrap.pulse .fablbl{color:#8b5cf6;}
@@ -412,7 +459,7 @@ input{-webkit-user-select:text!important;user-select:text!important;}
     </div>
   </div>
   <div class="sptitle">PRIVATE EXTREME</div>
-  <div class="spsub">EXTREME INJECTOR TOOLS</div>
+  <div class="spsub">TOOLS INJECTOR BY MDZZXITERS TEAM</div>
   <div class="sptag">ANDROID EDITION · v2.0</div>
   <div class="spbar">
     <div class="sptrack"><div class="spfill" id="spFill"></div><div class="spshim"></div></div>
@@ -429,39 +476,86 @@ input{-webkit-user-select:text!important;user-select:text!important;}
 })();
 </script>
 
-<!-- LOGIN -->
+<!-- LOGIN — Android Edition Redesign -->
 <div id="lg" class="scr">
 <div class="lgw">
-  <div class="lghd">
-    <div class="lgico">
-      <svg viewBox="0 0 52 52" fill="none"><polygon points="26,2 48,14 48,38 26,50 4,38 4,14" fill="url(#hglg)" stroke="rgba(139,92,246,.5)" stroke-width="1.4"/><defs><radialGradient id="hglg" cx="40%" cy="28%" r="72%" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1a0040"/><stop offset="100%" stop-color="#030008"/></radialGradient></defs></svg>
-      <span class="lgicoM">M</span>
+
+  <!-- big logo lockup with orbiting dots -->
+  <div style="display:flex;flex-direction:column;align-items:center;padding:16px 0 8px;">
+    <div style="position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+
+      <!-- orbit arm 1 — large dot, slow -->
+      <div style="position:absolute;width:110px;height:110px;top:50%;left:50%;margin:-55px 0 0 -55px;border-radius:50%;animation:hfspin 7s linear infinite;">
+        <div style="position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#c084fc,#4c1d95);box-shadow:0 0 14px #8b5cf6,0 0 28px rgba(139,92,246,.6);"></div>
+      </div>
+      <!-- orbit arm 2 — medium dot, reverse -->
+      <div style="position:absolute;width:86px;height:86px;top:50%;left:50%;margin:-43px 0 0 -43px;border-radius:50%;animation:hfspin 5s linear infinite reverse;">
+        <div style="position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#e879f9,#6d28d9);box-shadow:0 0 10px #e879f9,0 0 20px rgba(232,121,249,.55);"></div>
+      </div>
+      <!-- orbit arm 3 — small dot, fast -->
+      <div style="position:absolute;width:60px;height:60px;top:50%;left:50%;margin:-30px 0 0 -30px;border-radius:50%;animation:hfspin 3.5s linear infinite;">
+        <div style="position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:#c084fc;box-shadow:0 0 8px #c084fc;"></div>
+      </div>
+
+      <!-- comet arcs (same as splash) -->
+      <div style="position:absolute;width:100px;height:100px;top:50%;left:50%;margin:-50px 0 0 -50px;border-radius:50%;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));background:conic-gradient(from 0deg,transparent 50%,rgba(139,92,246,.06) 62%,rgba(139,92,246,.5) 72%,rgba(192,132,252,1) 78%,#fff 81%,rgba(192,132,252,1) 84%,rgba(139,92,246,.35) 90%,transparent 96%);animation:hfspin 3s linear infinite;filter:drop-shadow(0 0 8px rgba(139,92,246,1));"></div>
+      <div style="position:absolute;width:74px;height:74px;top:50%;left:50%;margin:-37px 0 0 -37px;border-radius:50%;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));background:conic-gradient(from 200deg,transparent 55%,rgba(232,121,249,.06) 65%,rgba(232,121,249,.45) 74%,rgba(232,121,249,.95) 80%,rgba(232,121,249,.38) 86%,transparent 95%);animation:hfspin 4.8s linear infinite reverse;filter:drop-shadow(0 0 6px rgba(232,121,249,.9));"></div>
+
+      <!-- center M badge -->
+      <div style="position:relative;z-index:5;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#1e0050,#4c1d95,#7c3aed);display:flex;align-items:center;justify-content:center;box-shadow:0 0 28px rgba(139,92,246,.6),0 0 60px rgba(139,92,246,.2);border:1px solid rgba(192,132,252,.28);">
+        <span style="font-family:'Black Ops One',cursive;font-size:28px;color:#fff;text-shadow:0 0 20px rgba(192,132,252,1);">M</span>
+      </div>
     </div>
-    <div><span class="lgtitle">PRIVATE EXTREME</span><span class="lgver">EXTREME INJECTOR TOOLS v2.0</span></div>
+
+    <div style="font-family:var(--hud);font-size:20px;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,#c084fc,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:5px;">PRIVATE EXTREME</div>
+    <div style="font-family:var(--mono);font-size:7.5px;letter-spacing:2px;color:var(--t4);text-align:center;">TOOLS INJECTOR BY MDZZXITERS TEAM</div>
+    <div style="font-family:var(--mono);font-size:7px;letter-spacing:1.5px;color:rgba(139,92,246,.4);margin-top:3px;">v2.0 · ANDROID EDITION</div>
   </div>
-  <div class="glass">
-    <div class="glbody">
-      <div class="kpulse">
-        <div class="kw"></div><div class="kw"></div>
-        <svg style="width:36px;height:36px;" viewBox="0 0 48 48" fill="none">
-          <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" stroke="#8b5cf6" stroke-width="1.5" fill="rgba(139,92,246,.07)"/>
-          <circle cx="24" cy="24" r="7" stroke="#8b5cf6" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="rgba(139,92,246,.3)" stroke="#a855f7" stroke-width="1"/>
-          <line x1="29" y1="24" x2="44" y2="24" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
-          <line x1="40" y1="24" x2="40" y2="30" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
-          <line x1="36" y1="24" x2="36" y2="28" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+
+  <!-- key input card — material android style -->
+  <div style="background:var(--card);border-radius:22px;overflow:hidden;position:relative;border:1px solid rgba(139,92,246,.14);box-shadow:0 20px 60px rgba(0,0,0,.7);">
+    <!-- top bar accent -->
+    <div style="height:3px;background:linear-gradient(90deg,#1e0050,#7c3aed,#e879f9,#7c3aed,#1e0050);"></div>
+    <div style="padding:22px 20px 22px;">
+      <!-- section label -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+        <div style="width:32px;height:32px;border-radius:10px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.18);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+        </div>
+        <div>
+          <div style="font-family:var(--hud);font-size:10px;font-weight:700;color:var(--t1);letter-spacing:1px;">VERIFIKASI LISENSI</div>
+          <div style="font-family:var(--mono);font-size:7.5px;color:var(--t2);letter-spacing:.5px;margin-top:2px;">1 KEY TERIKAT 1 PERANGKAT</div>
+        </div>
       </div>
-      <div class="authlbl">MASUKKAN ACCESS KEY ANDA</div>
-      <div class="fld">
-        <input type="password" id="kinp" placeholder=" " maxlength="24" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="none"/>
-        <label for="kinp">ACCESS KEY</label>
-        <button class="eyebtn" onclick="toggleEye()"><svg id="eyeico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+
+      <!-- key input with Android style -->
+      <div style="position:relative;margin-bottom:12px;">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:48px;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        </div>
+        <input type="password" id="kinp" placeholder="Masukkan Access Key..." maxlength="24" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="none"
+          style="width:100%;background:rgba(139,92,246,.05);border:1.5px solid rgba(139,92,246,.2);border-radius:13px;padding:15px 48px 15px 48px;color:var(--t1);font-family:var(--mono);font-size:13px;letter-spacing:2px;outline:none;caret-color:#a855f7;-webkit-appearance:none;appearance:none;transition:border-color .2s,background .2s,box-shadow .2s;"/>
+        <button class="eyebtn" onclick="toggleEye()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;">
+          <svg id="eyeico" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.55)" stroke-width="2" width="16" height="16"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
       </div>
-      <button class="btnunlock" id="vfybtn" onclick="doLogin()"><span id="vfyt">VERIFY AND UNLOCK</span></button>
+
+      <!-- unlock button -->
+      <button class="btnunlock" id="vfybtn" onclick="doLogin()" style="width:100%;padding:16px;background:linear-gradient(150deg,#1e0050,#4c1d95 42%,#7c3aed 74%,#a855f7);border:none;border-radius:13px;color:#fff;font-family:var(--hud);font-size:11px;font-weight:700;letter-spacing:4px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 36px rgba(139,92,246,.4),0 0 0 1px rgba(255,255,255,.08) inset;transition:transform .12s,filter .18s;">
+        <span id="vfyt">VERIFIKASI &amp; BUKA</span>
+      </button>
       <div id="fb" class="authfb hidden"></div>
     </div>
   </div>
-  <div class="lgfoot"><span class="hi">PRIVATE EXTREME v2.0</span><span>·</span><span class="hi">ANDROID ONLY</span><span>·</span><span>1 KEY / 1 DEVICE</span><span>·</span><span class="hi">BY MDZZXITERS</span></div>
+
+  <!-- android device info strip -->
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 4px 0;">
+    <div style="display:flex;align-items:center;gap:5px;">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.4)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round"/></svg>
+      <span style="font-family:var(--mono);font-size:7.5px;color:var(--t3);letter-spacing:.5px;">ANDROID · FREE FIRE</span>
+    </div>
+    <div style="font-family:var(--mono);font-size:7.5px;color:var(--t3);letter-spacing:.5px;">BY MDZZXITERS</div>
+  </div>
 </div>
 </div>
 
@@ -499,7 +593,7 @@ input{-webkit-user-select:text!important;user-select:text!important;}
           <div class="hbleft">
             <span class="hbgreet">WELCOME BACK, OPERATOR</span>
             <span class="hbname">PRIVATE<br><span>EXTREME</span></span>
-            <span class="hbsub">EXTREME INJECTOR TOOLS v2.0</span>
+            <span class="hbsub">ANDROID EDITION · v2.0</span>
           </div>
           <div class="ringwrap">
             <svg class="ringsvg" viewBox="0 0 80 80">
@@ -518,6 +612,35 @@ input{-webkit-user-select:text!important;user-select:text!important;}
           <div class="spill"><span class="spillval g">ARMED</span><div class="spilllbl">STATUS</div></div>
         </div>
       </div>
+
+      <!-- quick stats row -->
+      <div class="qstat-row" id="qstatRow">
+        <div class="qstat">
+          <div class="qstat-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span class="qstat-val" id="qAim">0</span>
+          <span class="qstat-lbl">AIM CORE</span>
+        </div>
+        <div class="qstat">
+          <div class="qstat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <span class="qstat-val" id="qPrec">0</span>
+          <span class="qstat-lbl">PRECISION</span>
+        </div>
+        <div class="qstat">
+          <div class="qstat-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <span class="qstat-val" id="qSys">0</span>
+          <span class="qstat-lbl">SYSTEM</span>
+        </div>
+      </div>
+
+      <!-- active modules list -->
+      <div class="sechd"><div class="secln"></div><span class="sectlbl">MODULE AKTIF</span><div class="secln r"></div></div>
+      <div class="act-list" id="actList">
+        <div class="act-item" style="justify-content:center;">
+          <span style="font-family:var(--mono);font-size:9px;color:var(--t3);">Belum ada module aktif</span>
+        </div>
+      </div>
+
+      <!-- launch buttons -->
       <div class="sechd"><div class="secln"></div><span class="sectlbl">LAUNCH TARGET</span><div class="secln r"></div></div>
       <div class="lrow">
         <button class="lbtn2" id="btnFF">
@@ -564,9 +687,63 @@ input{-webkit-user-select:text!important;user-select:text!important;}
         <div class="termbtnwrap"><button class="btninject" id="injbtn" onclick="startInject()">LAUNCH INJECT</button></div>
       </div>
     </div>
+
+    <!-- PAGE 3: DEVICE INFO -->
+    <div class="pg" id="pg3">
+      <div class="sechd" style="margin-top:4px;"><div class="secln"></div><span class="sectlbl">REALTIME SYSTEM</span><div class="secln r"></div></div>
+      <div class="devgrid">
+        <div class="devcard">
+          <div class="devcard-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round"/></svg></div>
+          <span class="devcard-lbl">BATERAI</span>
+          <span class="devcard-val" id="devBat">–%</span>
+          <span class="devcard-sub" id="devBatSub">Memuat...</span>
+          <div class="devcard-bar"><div class="devcard-bar-fill" id="devBatBar" style="width:0%"></div></div>
+        </div>
+        <div class="devcard xt">
+          <div class="devcard-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <span class="devcard-lbl">MEMORI</span>
+          <span class="devcard-val" id="devRam">–MB</span>
+          <span class="devcard-sub" id="devRamSub">Estimasi usage</span>
+          <div class="devcard-bar"><div class="devcard-bar-fill xt" id="devRamBar" style="width:60%"></div></div>
+        </div>
+        <div class="devcard">
+          <div class="devcard-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <span class="devcard-lbl">UPTIME SESSION</span>
+          <span class="devcard-val" id="devUptime">00:00</span>
+          <span class="devcard-sub">Session aktif</span>
+        </div>
+        <div class="devcard xt">
+          <div class="devcard-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <span class="devcard-lbl">MODULE LOAD</span>
+          <span class="devcard-val" id="devMod">0/11</span>
+          <span class="devcard-sub">Modules aktif</span>
+          <div class="devcard-bar"><div class="devcard-bar-fill xt" id="devModBar" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="sechd"><div class="secln"></div><span class="sectlbl">INFORMASI PERANGKAT</span><div class="secln r"></div></div>
+      <div class="devsec">
+        <span class="devsec-ttl">ANDROID DEVICE INFO</span>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Platform</span></div><span class="devrow-val" id="dinPlatform">Android</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Browser</span></div><span class="devrow-val" id="dinBrowser">–</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot"></div><span class="devrow-lbl">Screen</span></div><span class="devrow-val" id="dinScreen">–</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot"></div><span class="devrow-lbl">DPR</span></div><span class="devrow-val" id="dinDpr">–</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Network</span></div><span class="devrow-val" id="dinNet">–</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Koneksi</span></div><span class="devrow-val" id="dinConn">Online</span></div>
+      </div>
+
+      <div class="sechd"><div class="secln"></div><span class="sectlbl">NETWORK STATUS</span><div class="secln r"></div></div>
+      <div class="devsec">
+        <span class="devsec-ttl">FIREBASE CONNECTION</span>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g" id="fbDot"></div><span class="devrow-lbl">Firebase Auth</span></div><span class="devrow-val" id="fbStatus">Connected</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Firestore</span></div><span class="devrow-val">Active</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot g"></div><span class="devrow-lbl">Session</span></div><span class="devrow-val" id="devSessTxt">Authenticated</span></div>
+        <div class="devrow"><div class="devrow-l"><div class="devrow-dot"></div><span class="devrow-lbl">Device ID</span></div><span class="devrow-val" id="devDid" style="font-size:8px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">–</span></div>
+      </div>
+    </div>
   </div>
 
-  <!-- BOTTOM NAV -->
+  <!-- BOTTOM NAV — 4 tabs -->
   <div class="bnav">
     <div class="bnavin">
       <div class="nav-pill" id="navPill"></div>
@@ -580,8 +757,8 @@ input{-webkit-user-select:text!important;user-select:text!important;}
       </button>
       <div class="fab-wrap" id="fabWrap">
         <div class="fab-ring">
-          <svg viewBox="0 0 72 72" fill="none">
-            <circle cx="36" cy="36" r="32" stroke="url(#fabring)" stroke-width="1.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+          <svg viewBox="0 0 74 74" fill="none">
+            <circle cx="37" cy="37" r="33" stroke="url(#fabring)" stroke-width="2" stroke-dasharray="7 4" stroke-linecap="round"/>
             <defs><linearGradient id="fabring" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#e879f9"/></linearGradient></defs>
           </svg>
         </div>
@@ -591,7 +768,10 @@ input{-webkit-user-select:text!important;user-select:text!important;}
         </button>
         <span class="fablbl">INJECT</span>
       </div>
-      <div class="fabsp"></div><div class="fabsp"></div>
+      <button class="nbtn off" id="nav3" onclick="switchPg(3)">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="9" x2="15" y2="9" stroke-linecap="round"/><line x1="9" y1="13" x2="15" y2="13" stroke-linecap="round"/><line x1="9" y1="17" x2="12" y2="17" stroke-linecap="round"/></svg>
+        <span class="nbtnlbl">DEVICE</span>
+      </button>
     </div>
   </div>
 </div>
@@ -646,10 +826,38 @@ gi('kinp').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();}
 
 /* nav with sliding pill */
 var curPg=0;
-function updateNavPill(idx){var pill=gi('navPill');if(!pill)return;var nav=gi('nav'+idx);if(!nav){pill.style.opacity='0';return;}var br=nav.getBoundingClientRect();var wr=nav.parentElement.getBoundingClientRect();var cx=br.left+br.width/2-wr.left;pill.style.left=(cx-20)+'px';pill.style.opacity='1';}
-function switchPg(idx){SFX.click();curPg=idx;[0,1].forEach(function(i){var n=gi('nav'+i);if(n)n.className='nbtn '+(i===idx?'active':'off');});[0,1,2].forEach(function(i){var p=gi('pg'+i);if(p)p.className='pg'+(i===idx?' show':'');});gi('pscroll').scrollTop=0;if(idx===2){refreshInjMod();var fab=gi('fabBtn');if(fab){fab.style.background='linear-gradient(135deg,#6d28d9,#a855f7,#e879f9)';}}else{var fab=gi('fabBtn');if(fab)fab.style.background='';}updateNavPill(idx<2?idx:-1);}
+function updateNavPill(idx){var pill=gi('navPill');if(!pill)return;var navIds=[0,1,3];var navIdx=navIds.indexOf(idx);if(navIdx<0){pill.style.opacity='0';return;}var nav=gi('nav'+idx);if(!nav){pill.style.opacity='0';return;}var br=nav.getBoundingClientRect();var wr=nav.parentElement.getBoundingClientRect();var cx=br.left+br.width/2-wr.left;pill.style.left=(cx-20)+'px';pill.style.opacity='1';}
+function switchPg(idx){SFX.click();curPg=idx;[0,1,3].forEach(function(i){var n=gi('nav'+i);if(n)n.className='nbtn '+(i===idx?'active':'off');});[0,1,2,3].forEach(function(i){var p=gi('pg'+i);if(p)p.className='pg'+(i===idx?' show':'');});gi('pscroll').scrollTop=0;if(idx===2)refreshInjMod();if(idx===3)refreshDevInfo();var fab=gi('fabBtn');if(fab){if(idx===2){fab.style.background='linear-gradient(135deg,#6d28d9,#a855f7,#e879f9)';}else{fab.style.background='';}}updateNavPill(idx);}
 window.switchPg=switchPg;
 setTimeout(function(){updateNavPill(0);},200);
+
+function refreshDevInfo(){
+  /* battery */
+  if(navigator.getBattery){navigator.getBattery().then(function(b){var pct=Math.round(b.level*100);var bat=gi('devBat');if(bat)bat.textContent=pct+'%';var sub=gi('devBatSub');if(sub)sub.textContent=b.charging?'Mengisi daya...':'Baterai';var bar=gi('devBatBar');if(bar){bar.style.width=pct+'%';bar.className='devcard-bar-fill'+(pct<20?' warn':pct>50?' ok':'');}});}
+  else{var bat=gi('devBat');if(bat)bat.textContent='N/A';}
+  /* screen */
+  var scr=gi('dinScreen');if(scr)scr.textContent=window.screen.width+'×'+window.screen.height;
+  var dpr=gi('dinDpr');if(dpr)dpr.textContent=(window.devicePixelRatio||1).toFixed(1)+'x';
+  /* browser */
+  var ua=navigator.userAgent;var br='Unknown';if(/Chrome/.test(ua))br='Chrome';else if(/Firefox/.test(ua))br='Firefox';else if(/Safari/.test(ua))br='Safari';var brEl=gi('dinBrowser');if(brEl)brEl.textContent=br;
+  /* platform */
+  var pf=gi('dinPlatform');if(pf)pf.textContent=/Android/.test(ua)?'Android':/iPad|iPhone|iPod/.test(ua)?'iOS':'Browser';
+  /* network */
+  var nc=navigator.connection||navigator.mozConnection;var net=gi('dinNet');if(net)net.textContent=nc?(nc.effectiveType||nc.type||'–').toUpperCase():'–';
+  /* online */
+  var conn=gi('dinConn');if(conn)conn.textContent=navigator.onLine?'Online':'Offline';
+  /* RAM estimate */
+  var mem=navigator.deviceMemory;var ram=gi('devRam');if(ram)ram.textContent=mem?mem*1024+'MB':'–';
+  /* device id */
+  var did=localStorage.getItem('_pex_did')||'–';var didEl=gi('devDid');if(didEl)didEl.textContent=did.substring(0,18)+'…';
+}
+
+/* uptime counter */
+var _startT=Date.now();
+setInterval(function(){
+  if(curPg!==3)return;
+  var s=Math.floor((Date.now()-_startT)/1000);var m=Math.floor(s/60);var ss=s%60;var el=gi('devUptime');if(el)el.textContent=(m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;
+},1000);
 
 /* features */
 var FEAT_DATA=[
@@ -740,12 +948,29 @@ window.onFeatToggle=onFeatToggle;
 
 function refreshCounts(){
   var n=FEAT_DATA.filter(function(f){return f.on;}).length;
+  var nAim=FEAT_DATA.filter(function(f){return f.on&&f.cat==='AIM CORE';}).length;
+  var nPrec=FEAT_DATA.filter(function(f){return f.on&&f.cat==='PRECISION';}).length;
+  var nSys=FEAT_DATA.filter(function(f){return f.on&&f.cat==='SYSTEM';}).length;
   var a=gi('sActv');if(a)a.textContent=n;
   var rn=gi('ringNum');if(rn)rn.textContent=n;
   var rf=gi('ringFill');if(rf)rf.style.strokeDashoffset=(213-(213*(n/FEAT_DATA.length))).toFixed(1);
   var fd=gi('fabDot');if(fd){fd.textContent=n;fd.className='fabdot'+(n>0?' show':'');}
   var fw=gi('fabWrap');if(fw)fw.className='fab-wrap'+(n>0?' pulse':'');
-  var amb=gi('amb');if(amb)amb.style.opacity=0.28+(n/FEAT_DATA.length)*0.72;
+  var amb=gi('amb');if(amb)amb.style.opacity=0.45+(n/FEAT_DATA.length)*0.55;
+  /* qstats */
+  var qa=gi('qAim');if(qa)qa.textContent=nAim;
+  var qp=gi('qPrec');if(qp)qp.textContent=nPrec;
+  var qs=gi('qSys');if(qs)qs.textContent=nSys;
+  /* active module list */
+  var al=gi('actList');
+  if(al){
+    var active=FEAT_DATA.filter(function(f){return f.on;});
+    if(!active.length){al.innerHTML='<div class="act-item" style="justify-content:center;"><span style="font-family:var(--mono);font-size:9px;color:var(--t3);">Belum ada module aktif</span></div>';}
+    else{al.innerHTML=active.map(function(f){return '<div class="act-item"><div class="act-dot on'+(f.xt?' xt':'')+'"></div><span class="act-nm on">'+f.name+'</span><span class="act-badge'+(f.xt?' xt':'')+'">'+f.badge+'</span></div>';}).join('');}
+  }
+  /* device page mod count */
+  var dm=gi('devMod');if(dm)dm.textContent=n+'/11';
+  var dmb=gi('devModBar');if(dmb)dmb.style.width=(n/11*100)+'%';
   refreshInjMod();
 }
 window.refreshCounts=refreshCounts;
@@ -755,7 +980,7 @@ var selPkg='';
 gi('btnFF').addEventListener('click',function(){ensureAudio();SFX.click();selPkg=PKG_FF;var v=gi('injTgtVal');if(v){v.textContent=PKG_FF;v.className='tgtval';}showPopup('game','LAUNCH FREE FIRE','Membuka Free Fire...\nPastikan inject telah selesai\nsebelum masuk ke match.',[{label:'Batal'},{label:'OPEN',ok:true,cb:function(){toast('Membuka Free Fire...','i',2000);setTimeout(function(){window.location.href='freefire://';},900);}}]);});
 gi('btnFFMAX').addEventListener('click',function(){ensureAudio();SFX.click();selPkg=PKG_MX;var v=gi('injTgtVal');if(v){v.textContent=PKG_MX;v.className='tgtval';}showPopup('gamemx','LAUNCH FREE FIRE MAX','Membuka Free Fire MAX...\nPastikan inject telah selesai\nsebelum masuk ke match.',[{label:'Batal'},{label:'OPEN',ok:true,cb:function(){toast('Membuka Free Fire MAX...','i',2000);setTimeout(function(){window.location.href='freefiremax://';},900);}}]);});
 
-function buildLines(pkg){var ls=[],active=FEAT_DATA.filter(function(f){return f.on;});var pid='0x'+Math.floor(Math.random()*0xffff+0x1000).toString(16).toUpperCase();function L(t,c){ls.push({t:t,c:c||'data'});}L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L(' PRIVATE EXTREME INJECTOR v4.0 ULTRA','hdr');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L('','data');L('[1/7] LOCATING PROCESS','cmd');L('  scanning /proc PID table...','data');L('  PID '+pid+' found — '+pkg,'data');L('','data');L('[2/7] PTRACE ATTACH','cmd');L('  ptrace(PTRACE_ATTACH, '+pid+')','path');L('  status → OK','data');L('','data');L('[3/7] MEMORY MAP SCAN','cmd');L('  libil2cpp.so → 0x70A800000000','hex');L('  libunity.so  → 0x70BC00000000','hex');L('  libmain.so   → 0x70CA00000000','hex');L('','data');L('[4/7] BYPASS SHIELD','cmd');L('  ACE v3.2 detected → spoofing...','warn');L('  hwid spoof → OK','hex');L('','data');L('[5/7] ALLOCATE PAYLOAD','cmd');L('  mmap alloc → 0xFFFF7B4C000000','hex');L('  extreme shellcode written','data');L('','data');L('[6/7] LOADING MODULES','cmd');active.forEach(function(f,idx){L('  ['+(idx+1)+'/'+active.length+'] '+f.name,'feat');L('  offset → 0x'+Math.floor(Math.random()*0xFFFFFF).toString(16).toUpperCase(),'hex');});L('','data');L('[7/7] VERIFICATION','cmd');active.forEach(function(f){L('  '+f.id+' loaded','ok');});L('','data');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L(' INJECTION COMPLETE — '+active.length+' MODULE(S) ACTIVE','ok');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');return ls;}
+function buildLines(pkg){var ls=[],active=FEAT_DATA.filter(function(f){return f.on;});var pid='0x'+Math.floor(Math.random()*0xffff+0x1000).toString(16).toUpperCase();function L(t,c){ls.push({t:t,c:c||'data'});}L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L(' PRIVATE EXTREME INJECTOR v2.0','hdr');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L('','data');L('[1/7] LOCATING PROCESS','cmd');L('  scanning /proc PID table...','data');L('  PID '+pid+' found — '+pkg,'data');L('','data');L('[2/7] PTRACE ATTACH','cmd');L('  ptrace(PTRACE_ATTACH, '+pid+')','path');L('  status → OK','data');L('','data');L('[3/7] MEMORY MAP SCAN','cmd');L('  libil2cpp.so → 0x70A800000000','hex');L('  libunity.so  → 0x70BC00000000','hex');L('  libmain.so   → 0x70CA00000000','hex');L('','data');L('[4/7] BYPASS SHIELD','cmd');L('  ACE v3.2 detected → spoofing...','warn');L('  hwid spoof → OK','hex');L('','data');L('[5/7] ALLOCATE PAYLOAD','cmd');L('  mmap alloc → 0xFFFF7B4C000000','hex');L('  extreme shellcode written','data');L('','data');L('[6/7] LOADING MODULES','cmd');active.forEach(function(f,idx){L('  ['+(idx+1)+'/'+active.length+'] '+f.name,'feat');L('  offset → 0x'+Math.floor(Math.random()*0xFFFFFF).toString(16).toUpperCase(),'hex');});L('','data');L('[7/7] VERIFICATION','cmd');active.forEach(function(f){L('  '+f.id+' loaded','ok');});L('','data');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');L(' INJECTION COMPLETE — '+active.length+' MODULE(S) ACTIVE','ok');L('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━','hdr');return ls;}
 
 var injBusy=false;
 function startInject(){if(injBusy)return;ensureAudio();SFX.click();var active=FEAT_DATA.filter(function(f){return f.on;});if(!active.length){showPopup('warn','NO MODULE ACTIVE','Aktifkan minimal satu modul\ndi halaman MODULES sebelum inject.',[{label:'OK',ok:true}]);return;}if(!selPkg){showPopup('game','SELECT TARGET','Pilih target di halaman HOME\nterlebih dahulu.',[{label:'OK',ok:true}]);return;}showPopup('inj','CONFIRM INJECT','Inject '+active.length+' modul ke\n'+selPkg+'?',[{label:'BATAL'},{label:'INJECT',ok:true,cb:function(){runInject();}}]);}
